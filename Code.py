@@ -22,10 +22,10 @@ def main():
              f'IMPORTANT\n' \
              f'\tYou should not create new file in this sorter folder, ' \
              f'because it will be renamed and moved automatically.\n' \
-             f'\tIn other word, this folder is suggested to be used as download folder\n\n' \
+             f'\tIn other word, this folder is suggested to be used as a download folder.\n\n' \
              f'\tAnother useful case, you can use this program to sort other folders by remove "sorter path.txt"\n' \
              f'\tlocated in the same folder as the program. After that rerun the program and it will ask you for ' \
-             f'new sorter path"'
+             f'new sorter path".'
 
     while True:
         if not os.path.exists(save_file_name):
@@ -51,11 +51,15 @@ def main():
         else:
             break
 
-    os.chdir(sorter_path)
     move_log = 'move log.txt'
     readme_name = 'README.txt'
     ignore = [move_log, readme_name]
 
+    if not os.path.exists(readme_name):
+        with open(readme_name, 'w') as f:
+            f.write(readme)
+
+    os.chdir(sorter_path)
     sorter_path_exists = os.path.exists(sorter_path)
     while sorter_path_exists:
         in_sorter = os.listdir()
