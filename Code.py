@@ -11,9 +11,10 @@ def known_problems():
 
 
 def main():
+    check_period = 30
     save_file_name = 'sorter path.txt'
-    readme = 'This program checks sorter path every 30 seconds for new files and sort them into ' \
-             'their folders based on their extension'
+    readme = f'This program checks sorter path every {check_period} seconds for new files and sort them into ' \
+             f'their folders based on their extension'
 
     if not os.path.exists('README.txt'):
         with open('README.txt', 'w') as f:
@@ -64,12 +65,13 @@ def main():
                     new_name = f'{file_name} {file_name_datetime}.{extension}'
                     new_name_file_path = os.path.join(sorter_path, new_name)
                     os.rename(old_name_file_path, new_name_file_path)
-                    move(new_name_file_path, os.path.join(sorter_path, f'.{extension}'))
+                    dir_name = f'.{extension}'
+                    move(new_name_file_path, os.path.join(sorter_path, dir_name))
                     print(f'moved {old_name_file_path} to {new_name_file_path}')
             except:
                 pass
 
-        sleep(1)
+        sleep(check_period)
         sorter_path_exists = os.path.exists(sorter_path)
 
     print('Sorter path does not exist.')
