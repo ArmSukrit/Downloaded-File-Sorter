@@ -1,4 +1,4 @@
 from datetime import datetime
+import os
 
-file_name_datetime = datetime.now().strftime('%S%M%H %d%m%y')
-print(file_name_datetime)
+print(os.path.exists('D:\Download Sorter'))

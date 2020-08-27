@@ -2,19 +2,19 @@ import os
 from shutil import move
 from time import sleep
 from datetime import datetime
+import json
 
 
 def problems_and_features():
     """
     - still cannot run in background
-    - should create move log to show all moved files
-        - should create the log as a txt file with the name of
+    - 
     """
 
 
 def main():
     check_period = 5
-    save_file_name = 'sorter path.txt'
+    config = 'config.json'
     readme = f'This folder, "sorter path", is scanned once every {check_period} seconds for new ' \
              f'files and sort them into ' \
              f'their folders based on their extensions\n' \
@@ -28,26 +28,33 @@ def main():
              f'new sorter path".'
 
     while True:
-        if not os.path.exists(save_file_name):
-            with open(save_file_name, 'w') as f:
-                while True:
-                    path = input("Enter folder path which will be used as sorter\n"
-                                 "folder path: ")
-                    if os.path.exists(path):
-                        f.write(path)
-                        break
-                    else:
-                        print(f'cannot find path "{path}"\n'
-                              f'For example, if you have a folder named "Sorter" in Drive D:, the path is '
-                              f'"D:\Sorter"\n')
+        # create config, if not found
+        if not os.path.exists(config):
+            with open(config, 'w') as f:
+                pass
+            while True:
+                path = input("Enter folder path which will be used as sorter\n"
+                             "folder path: ")
+                print(os.path.exists(path))
+                if os.path.exists(path):
+                    path_data = {'sorter path': path}
+                    with open(config, 'w') as f:
+                        json.dump(path_data, f, indent=4, sort_keys=True)
+                    break
+                else:
+                    print(f'cannot find path "{path}"\n'
+                          f'For example, if you have a folder named "Sorter" in Drive D:, the path is '
+                          f'"D:\Sorter"\n')
 
-        with open(save_file_name, 'r') as f:
-            sorter_path = f.readline()
+        # read config
+        with open(config, 'r') as f:
+            data = json.load(f)
+            sorter_path = data['sorter path']
             print(f'Sorter path = "{sorter_path}"')
 
         if not os.path.exists(sorter_path):
-            print(f'cannot find the folder path specified in {save_file_name}')
-            os.remove(save_file_name)
+            print(f'cannot find the folder path specified in {config}')
+            os.remove(config)
         else:
             break
 
