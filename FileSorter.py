@@ -11,7 +11,8 @@ import base64
 def problems_and_features():
     """
     - still cannot run in background
-    - 
+    - move log does not work
+    -
     """
 
 
@@ -48,7 +49,7 @@ def main():
     # check all needed files and read them. If sorter path exists, break.
     while True:
         # create config, if not found
-        config = 'config.json'
+        config = 'FileSorter - config.json'
         if not os.path.exists(config):
             all_config = {
                 'sorter path': None, 'period': 5, 'ignore': ['example.txt']
@@ -96,9 +97,9 @@ def main():
         in_sorter = os.listdir()
         in_sorter = [name for name in in_sorter if name not in ignore]
         now_str = datetime.now().strftime("%H:%M:%S %d/%m/%y")
-        print(f'{now_str} in Sorter: {", ".join(in_sorter)}')
+        print(f'{now_str} in Sorter: {", ".join(reversed(in_sorter))}')
 
-        # check for files, if not found, create.
+        # check for move log and readme. if not found, create.
         for each in ignore:
             if each not in in_sorter:
                 if each in ignore[:2]:
@@ -125,7 +126,7 @@ def main():
                     dir_path = os.path.join(sorter_path, dir_name)
                     move(new_name_file_path, dir_path)
                     with open(move_log, 'a') as f:
-                        f.write(f'{now_str} \nrenamed "{name}" to "{new_name}" and moved to {dir_path}\n')
+                        f.write(f'{now_str} \nrenamed "{name}" with "{new_name}" and moved to {dir_path}\n')
 
             except:
                 pass
