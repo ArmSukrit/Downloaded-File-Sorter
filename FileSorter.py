@@ -26,13 +26,32 @@ def main():
         with Image.open(image_file_name) as image:
             image.show()
 
+    # show read me first
+    readme_name = 'FileSorter - README.txt'
+    readme = f'- The folder path "sorter path" is scanned once every 5 seconds for new \n' \
+             f'files and sort them into ' \
+             f'their folders based on their extensions\n' \
+             f'- You can change how frequently the program checks and files to be ignored in config.json\n' \
+             f'- See move log for move history\n\n' \
+             f'IMPORTANT\n' \
+             f'\tYou should not create new file in this sorter folder, ' \
+             f'because it will be renamed and moved automatically.\n' \
+             f'\tIn other word, sorter path folder is suggested to be used as a download folder.\n\n' \
+             f'\tAnother useful case, you can use this program to sort other folders by removing "config.json"\n' \
+             f'\tlocated in the same folder as the program. After that rerun the program and it will ask you for ' \
+             f'new sorter path.'
+    if not os.path.exists(readme_name):
+        with open(readme_name, 'w') as f:
+            f.write(readme)
+        web.open(readme_name)
+
     # check all needed files and read them. If sorter path exists, break.
     while True:
         # create config, if not found
         config = 'config.json'
         if not os.path.exists(config):
             all_config = {
-                'sorter path': None, 'period': 5
+                'sorter path': None, 'period': 5, 'ignore': ['example.txt']
             }
             show_how_to_get_sorter_path()
             with open(config, 'w') as f:
@@ -50,14 +69,14 @@ def main():
                               f'"D:\Sorter"\n')
 
         # read config
-        move_log = 'move log.txt'
-        readme_name = 'README.txt'
+        move_log = 'FileSorter - move log.txt'
         ignore = [move_log, readme_name]
         with open(config, 'r') as f:
             try:
                 data = json.load(f)
                 sorter_path = data['sorter path']
                 check_period = data['period']
+                ignore.append(data['ignore'])
                 print(f'Sorter path = "{sorter_path}"')
                 if not os.path.exists(sorter_path):
                     print(f'cannot find the folder path specified in {config}')
@@ -70,37 +89,22 @@ def main():
                 f.close()
                 os.remove(config)
 
-    readme = f'- The folder path "sorter path" is scanned once every {check_period} seconds for new \n' \
-             f'files and sort them into ' \
-             f'their folders based on their extensions\n' \
-             f'- You can change how frequently the program checks in config.json\n' \
-             f'- See move log for move history\n\n' \
-             f'IMPORTANT\n' \
-             f'\tYou should not create new file in this sorter folder, ' \
-             f'because it will be renamed and moved automatically.\n' \
-             f'\tIn other word, sorter path folder is suggested to be used as a download folder.\n\n' \
-             f'\tAnother useful case, you can use this program to sort other folders by removing "config.json"\n' \
-             f'\tlocated in the same folder as the program. After that rerun the program and it will ask you for ' \
-             f'new sorter path.'
-    if not os.path.exists(readme_name):
-        with open(readme_name, 'w') as f:
-            f.write(readme)
-        web.open(readme_name)
-
     # main program
     os.chdir(sorter_path)
     sorter_path_exists = os.path.exists(sorter_path)
     while sorter_path_exists:
         in_sorter = os.listdir()
+        in_sorter = [name for name in in_sorter if name not in ignore]
         now_str = datetime.now().strftime("%H:%M:%S %d/%m/%y")
         print(f'{now_str} in Sorter: {", ".join(in_sorter)}')
 
         # check for files, if not found, create.
         for each in ignore:
             if each not in in_sorter:
-                with open(each, 'w') as f:
-                    if each == readme_name:
-                        f.write(readme)
+                if each in ignore[:2]:
+                    with open(each, 'w') as f:
+                        if each == readme_name:
+                            f.write(readme)
 
         for name in in_sorter:
             try:
