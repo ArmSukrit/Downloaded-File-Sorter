@@ -97,47 +97,52 @@ def main():
     os.chdir(sorter_path)
     sorter_path_exists = os.path.exists(sorter_path)
     while sorter_path_exists:
-        in_sorter = os.listdir()
-        in_sorter = [name for name in in_sorter if name not in ignore]
-        now_str = datetime.now().strftime("%H:%M:%S %d/%m/%y")
-        print(f'{now_str} in Sorter: {", ".join(reversed(in_sorter))}')
+        try:
+            in_sorter = os.listdir()
+            in_sorter = [name for name in in_sorter if name not in ignore]
+            now_str = datetime.now().strftime("%H:%M:%S %d/%m/%y")
+            print(f'{now_str} in Sorter: {", ".join(reversed(in_sorter))}')
 
-        # check for README.txt
-        if not os.path.exists(readme_name):
-            with open(readme_name, 'w') as f:
-                f.write(readme)
+            # check for README.txt
+            if not os.path.exists(readme_name):
+                with open(readme_name, 'w') as f:
+                    f.write(readme)
 
-        to_put_in_move_log = ""
-        for name in in_sorter:
-            try:
-                file_name, extension = os.path.splitext(name)
-                if not in_sorter:
-                    break
-                if not os.path.isdir(name) and os.path.isfile(name) \
-                        and name not in ignore and extension not in ignore_extension:
-                    if not os.path.exists(extension):
-                        os.makedirs(extension)
-                        print(f'folder "{extension}" has been created.')
+            to_put_in_move_log = ""
+            for name in in_sorter:
+                try:
+                    file_name, extension = os.path.splitext(name)
+                    if not in_sorter:
+                        break
+                    if not os.path.isdir(name) and os.path.isfile(name) \
+                            and name not in ignore and extension not in ignore_extension:
+                        if not os.path.exists(extension):
+                            os.makedirs(extension)
+                            print(f'folder "{extension}" has been created.')
 
-                    old_name_file_path = os.path.join(sorter_path, name)
-                    file_name_datetime = datetime.now().strftime('%d%m%y %H%M%S')
-                    new_name = f'{file_name} {file_name_datetime}{extension}'
-                    new_name_file_path = os.path.join(sorter_path, new_name)
-                    os.rename(old_name_file_path, new_name_file_path)
-                    dir_name = extension
-                    dir_path = os.path.join(sorter_path, dir_name)
-                    move(new_name_file_path, dir_path)
-                    to_put_in_move_log += f'\nrenamed "{name}" to "{new_name}"\nmoved to {dir_path}\n'
-            except:
-                pass
-        if to_put_in_move_log:
-            with open(move_log, 'a') as f:
-                f.write(f'{now_str}\n'
-                        f'{to_put_in_move_log}'
-                        f'{"_" * 100}\n')
+                        old_name_file_path = os.path.join(sorter_path, name)
+                        file_name_datetime = datetime.now().strftime('%d%m%y %H%M%S')
+                        new_name = f'{file_name} {file_name_datetime}{extension}'
+                        new_name_file_path = os.path.join(sorter_path, new_name)
+                        os.rename(old_name_file_path, new_name_file_path)
+                        dir_name = extension
+                        dir_path = os.path.join(sorter_path, dir_name)
+                        move(new_name_file_path, dir_path)
+                        to_put_in_move_log += f'\nrenamed "{name}" to "{new_name}"\nmoved to {dir_path}\n'
+                except:
+                    pass
+            if to_put_in_move_log:
+                with open(move_log, 'a') as f:
+                    f.write(f'{now_str}\n'
+                            f'{to_put_in_move_log}'
+                            f'{"_" * 100}\n')
 
-        sleep(check_period)
-        sorter_path_exists = os.path.exists(sorter_path)
+            sleep(check_period)
+            sorter_path_exists = os.path.exists(sorter_path)
+
+        except KeyboardInterrupt:
+            print(f'Opening {move_log}')
+            web.open(move_log)
 
     print('Sorter path does not exist.')
     input('Enter to close ')
