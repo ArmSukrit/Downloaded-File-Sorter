@@ -11,7 +11,6 @@ import base64
 def problems_and_features():
     """
     - still cannot run in background
-    - move log does not work
     -
     """
 
@@ -103,14 +102,12 @@ def main():
         now_str = datetime.now().strftime("%H:%M:%S %d/%m/%y")
         print(f'{now_str} in Sorter: {", ".join(reversed(in_sorter))}')
 
-        # check for move log and readme. if not found, create.
-        for each in ignore:
-            if each not in in_sorter:
-                if each in ignore[:2]:
-                    with open(each, 'w') as f:
-                        if each == readme_name:
-                            f.write(readme)
+        # check for README.txt
+        if not os.path.exists(readme_name):
+            with open(readme_name, 'w') as f:
+                f.write(readme)
 
+        to_put_in_move_log = ""
         for name in in_sorter:
             try:
                 file_name, extension = os.path.splitext(name)
@@ -118,7 +115,7 @@ def main():
                     break
                 if not os.path.isdir(name) and os.path.isfile(name) \
                         and name not in ignore and extension not in ignore_extension:
-                    if not os.path.exists(f'{extension}'):
+                    if not os.path.exists(extension):
                         os.makedirs(extension)
                         print(f'folder "{extension}" has been created.')
 
@@ -130,11 +127,14 @@ def main():
                     dir_name = extension
                     dir_path = os.path.join(sorter_path, dir_name)
                     move(new_name_file_path, dir_path)
-                    with open(move_log, 'a') as f:
-                        f.write(f'{now_str} \nrenamed "{name}" with "{new_name}" and moved to {dir_path}\n')
-
+                    to_put_in_move_log += f'\nrenamed "{name}" to "{new_name}"\nmoved to {dir_path}\n'
             except:
                 pass
+        if to_put_in_move_log:
+            with open(move_log, 'a') as f:
+                f.write(f'{now_str}\n'
+                        f'{to_put_in_move_log}'
+                        f'{"_" * 100}\n')
 
         sleep(check_period)
         sorter_path_exists = os.path.exists(sorter_path)
