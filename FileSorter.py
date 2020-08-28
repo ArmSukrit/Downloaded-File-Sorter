@@ -32,7 +32,8 @@ def main():
              f'files and sort them into ' \
              f'their folders based on their extensions\n' \
              f'- You can change how frequently the program checks and files to be ignored in config.json\n' \
-             f'- See move log for move history\n\n' \
+             f'- To track all moved files, see "FileSorter move log.txt" \n' \
+             f'by pressing Ctrl + C or Delete in the program terminal\n\n' \
              f'IMPORTANT\n' \
              f'\tYou should not create new file in this sorter folder, ' \
              f'because it will be renamed and moved automatically.\n' \
