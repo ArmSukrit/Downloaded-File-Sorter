@@ -109,20 +109,20 @@ def main():
 
         for name in in_sorter:
             try:
-                file_name, extension = name.split('.')
+                file_name, extension = os.path.splitext(name)
                 if not in_sorter:
                     break
                 if not os.path.isdir(name) and os.path.isfile(name) and name not in ignore:
-                    if not os.path.exists(f'.{extension}'):
-                        os.makedirs(f'.{extension}')
-                        print(f'folder ".{extension}" has been created.')
+                    if not os.path.exists(f'{extension}'):
+                        os.makedirs(extension)
+                        print(f'folder "{extension}" has been created.')
 
                     old_name_file_path = os.path.join(sorter_path, name)
                     file_name_datetime = datetime.now().strftime('%H%M%S %d%m%Y')
-                    new_name = f'{file_name} {file_name_datetime}.{extension}'
+                    new_name = f'{file_name} {file_name_datetime}{extension}'
                     new_name_file_path = os.path.join(sorter_path, new_name)
                     os.rename(old_name_file_path, new_name_file_path)
-                    dir_name = f'.{extension}'
+                    dir_name = extension
                     dir_path = os.path.join(sorter_path, dir_name)
                     move(new_name_file_path, dir_path)
                     with open(move_log, 'a') as f:
