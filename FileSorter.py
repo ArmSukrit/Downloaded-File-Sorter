@@ -73,7 +73,7 @@ def main():
         move_log = 'FileSorter - move log.txt'
         ignore = [move_log, readme_name]
         ignore_extension = [
-            '.!ut', '.adadownload', '.bc', '.bc!', '.blf', '.cache', '.crdownload', '.dmp', '.download', '.download',
+            '.!ut', '.adadownload', '.bc', '.bc!', '.blf', '.cache', '.crdownload', '.dmp',
             '.download', '.part', '.partial', '.temp', '.tmp'
         ]
         with open(config, 'r') as f:
@@ -123,7 +123,7 @@ def main():
                         print(f'folder "{extension}" has been created.')
 
                     old_name_file_path = os.path.join(sorter_path, name)
-                    file_name_datetime = datetime.now().strftime('%H%M%S %d%m%Y')
+                    file_name_datetime = datetime.now().strftime('%d.%m.%y %H.%M.%S')
                     new_name = f'{file_name} {file_name_datetime}{extension}'
                     new_name_file_path = os.path.join(sorter_path, new_name)
                     os.rename(old_name_file_path, new_name_file_path)
