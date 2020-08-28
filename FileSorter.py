@@ -72,6 +72,7 @@ def main():
         # read config
         move_log = 'FileSorter - move log.txt'
         ignore = [move_log, readme_name]
+        ignore_extension = ['.tmp']
         with open(config, 'r') as f:
             try:
                 data = json.load(f)
@@ -112,7 +113,8 @@ def main():
                 file_name, extension = os.path.splitext(name)
                 if not in_sorter:
                     break
-                if not os.path.isdir(name) and os.path.isfile(name) and name not in ignore:
+                if not os.path.isdir(name) and os.path.isfile(name) \
+                        and name not in ignore and extension not in ignore_extension:
                     if not os.path.exists(f'{extension}'):
                         os.makedirs(extension)
                         print(f'folder "{extension}" has been created.')
