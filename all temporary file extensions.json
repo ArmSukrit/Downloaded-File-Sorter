@@ -1,0 +1,785 @@
+{
+    "last update": "28 August 2020",
+    "extensions": [
+        {
+            "extension": ".part",
+            "description": "Partial download"
+        },
+        {
+            "extension": ".download",
+            "description": "Chrome partial download"
+        },
+        {
+            "extension": ".thumbdata5--1763508120_0",
+            "description": "Android thumbnail index file"
+        },
+        {
+            "extension": ".thumbdata4--1967290299",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".csi",
+            "description": "Microsoft SharePoint Server temporary data"
+        },
+        {
+            "extension": ".cfa",
+            "description": "Adobe multimedia cache"
+        },
+        {
+            "extension": ".thumbdata5--1967290299_1",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".~cr",
+            "description": "Recovered picture or data"
+        },
+        {
+            "extension": ".egt",
+            "description": "EagleGet incomplete download file"
+        },
+        {
+            "extension": ".ewc2",
+            "description": "EDIUS WaveForm cache file"
+        },
+        {
+            "extension": ".sfk",
+            "description": "Sony audio waveform visualisation data"
+        },
+        {
+            "extension": ".mxdl",
+            "description": "Maxthon incomplete download"
+        },
+        {
+            "extension": ".loaded_1",
+            "description": "JavaScript cache file"
+        },
+        {
+            "extension": ".thumbdata4--1763508120",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".0",
+            "description": "Google Android cache"
+        },
+        {
+            "extension": ".cache",
+            "description": "Generally cache"
+        },
+        {
+            "extension": ".dmp",
+            "description": "Memory dump, screen dump, junk files"
+        },
+        {
+            "extension": ".thumbdata5",
+            "description": "Google Android thumbnail database"
+        },
+        {
+            "extension": ".thumbdata5-1763508120_2",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".lck",
+            "description": "Lock file"
+        },
+        {
+            "extension": ".hex",
+            "description": "Hex dump file format"
+        },
+        {
+            "extension": ".regtrans-ms",
+            "description": "Microsoft Windows registry changes temporary data"
+        },
+        {
+            "extension": ".cvr",
+            "description": "Microsoft Office/Outlook crash report"
+        },
+        {
+            "extension": ".thumbdata3-1763508120",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".thumbnail",
+            "description": "Google Android thumbnail cache"
+        },
+        {
+            "extension": ".!ut",
+            "description": "uTorrent incomplete download"
+        },
+        {
+            "extension": ".thumbdata5--1967290299_4",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".thumbdata5--1967290299_7",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".thumbdata5--1967290299_5",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".bc",
+            "description": "BitTorrent unfinished download"
+        },
+        {
+            "extension": ".blf",
+            "description": "Microsoft Windows registry data file"
+        },
+        {
+            "extension": ".thumbdata3",
+            "description": "Google Android thumbnail database"
+        },
+        {
+            "extension": ".mmsyscache",
+            "description": "Google Android system cache"
+        },
+        {
+            "extension": ".swo",
+            "description": "Vim temporary data"
+        },
+        {
+            "extension": ".rra",
+            "description": "Windows Installer temporary data"
+        },
+        {
+            "extension": ".thumbdata5-1763508120_6",
+            "description": "Android thumbnail index file"
+        },
+        {
+            "extension": ".pcp",
+            "description": "Windows Installer patch creation process data"
+        },
+        {
+            "extension": ".box",
+            "description": "Systems Management Server (SMS) temporary holding area file"
+        },
+        {
+            "extension": ".swn",
+            "description": "Vim temporary data"
+        },
+        {
+            "extension": ".pkf",
+            "description": "Adobe Audition peak data file"
+        },
+        {
+            "extension": ".lvl",
+            "description": "Samsung Galaxy video thumbnail cache"
+        },
+        {
+            "extension": ".little",
+            "description": "Mozilla Firefox start-up cache"
+        },
+        {
+            "extension": ".meb",
+            "description": "Corel WordPerfect Macro Editor bottom overflow"
+        },
+        {
+            "extension": ".dlm",
+            "description": "Adobe Download Manager partial download"
+        },
+        {
+            "extension": ".temp",
+            "description": "Temporary file"
+        },
+        {
+            "extension": ".rcv",
+            "description": "Eudora temporary download"
+        },
+        {
+            "extension": ".dap",
+            "description": "Download Accelerator partial download"
+        },
+        {
+            "extension": ".h64",
+            "description": "Audioless H.264 video data"
+        },
+        {
+            "extension": ".prmdc",
+            "description": "Adobe Premiere Pro metadata cache"
+        },
+        {
+            "extension": ".bu",
+            "description": "Pegasus Mail temporary data"
+        },
+        {
+            "extension": ".thumbdata5-1763508120_12",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".tmt",
+            "description": "Temporary file"
+        },
+        {
+            "extension": ".waf",
+            "description": "Microsoft Internet Explorer for Mac cache"
+        },
+        {
+            "extension": ".objectcache",
+            "description": "Cache"
+        },
+        {
+            "extension": ".rld",
+            "description": "Norton Commander temporary data"
+        },
+        {
+            "extension": ".thumbdata3-1967290299",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".indexpositions",
+            "description": "macOS (OS X) Spotlight data"
+        },
+        {
+            "extension": ".db3-journal",
+            "description": "SQLite temporary database journal"
+        },
+        {
+            "extension": ".thumbdata5-1763508120_7",
+            "description": "Android thumbnail index file"
+        },
+        {
+            "extension": ".thumbdata5-1763508120_17",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".msj",
+            "description": "MicroSurvey CAD temporary"
+        },
+        {
+            "extension": ".bct",
+            "description": "Adobe Bridge cache"
+        },
+        {
+            "extension": ".bdm",
+            "description": "Pro/ENGINEER temporary data"
+        },
+        {
+            "extension": ".pft",
+            "description": "Corel WordPerfect temporary data"
+        },
+        {
+            "extension": ".ptn2",
+            "description": "PaperPort thumbnail cache"
+        },
+        {
+            "extension": ".buf",
+            "description": "Buffer file"
+        },
+        {
+            "extension": ".glh",
+            "description": "Wise Installer temporary file"
+        },
+        {
+            "extension": ".cah",
+            "description": "Ulead Photo Explorer thumbnail cache"
+        },
+        {
+            "extension": ".aria2",
+            "description": "uGet aria2 incomplete download"
+        },
+        {
+            "extension": ".tmp",
+            "description": "Nero WaveEditor peak data"
+        },
+        {
+            "extension": ".help",
+            "description": "Unix help document"
+        },
+        {
+            "extension": ".TemporaryItems",
+            "description": "Mac OS X temporary data"
+        },
+        {
+            "extension": ".idlk",
+            "description": "Adobe InDesign lock file"
+        },
+        {
+            "extension": ".dia",
+            "description": "Microsoft SharePoint Server 2007 temporary data"
+        },
+        {
+            "extension": ".citriodownload",
+            "description": "Citrio incomplete download"
+        },
+        {
+            "extension": ".indexpositiontable",
+            "description": "macOS (OS X) Spotlight data"
+        },
+        {
+            "extension": ".tombstone",
+            "description": "Google Android tombstone data"
+        },
+        {
+            "extension": ".dca",
+            "description": "Visual Basic active designer cache"
+        },
+        {
+            "extension": ".filetablelock",
+            "description": "Eclipse lock data"
+        },
+        {
+            "extension": ".bc!",
+            "description": "Bittorrent unfinished download"
+        },
+        {
+            "extension": ".shadowIndexGroups",
+            "description": "macOS (OS X) spotlight data"
+        },
+        {
+            "extension": ".snapdoc",
+            "description": "Ashampoo Snap data"
+        },
+        {
+            "extension": ".onetmp",
+            "description": "Microsoft OneNote temporary data"
+        },
+        {
+            "extension": ".fb!",
+            "description": "FlashGet incomplete download"
+        },
+        {
+            "extension": ".mx1",
+            "description": "coucoucircus.org audio temporary data"
+        },
+        {
+            "extension": ".bsd",
+            "description": "Microsoft SharePoint Server 2007 temporary data"
+        },
+        {
+            "extension": ".thumbdata5-1763508120_20",
+            "description": "Android thumbnail index"
+        },
+        {
+            "extension": ".shadowindexcompactdirectory",
+            "description": "macOS (OS X) Spotlight data"
+        },
+        {
+            "extension": ".shadowIndexTermIds",
+            "description": "macOS (OS X) Spotlight data"
+        },
+        {
+            "extension": ".utpart",
+            "description": "\u00b5Torrent unfinished download"
+        },
+        {
+            "extension": ".cache-2",
+            "description": "VLC media player font cache"
+        },
+        {
+            "extension": ".rsx",
+            "description": "Temporary Red Alert camera data"
+        },
+        {
+            "extension": ".xcuserstate",
+            "description": "Xcode data"
+        },
+        {
+            "extension": ".identcache",
+            "description": "Delphi temporary cache"
+        },
+        {
+            "extension": ".save",
+            "description": "Nano temporary saved data"
+        },
+        {
+            "extension": ".wov",
+            "description": "Cakewalk SONAR cache clip"
+        },
+        {
+            "extension": ".tv6",
+            "description": "Corel WordPerfect overflow data"
+        },
+        {
+            "extension": ".4sh",
+            "description": "4shared temporary download data"
+        },
+        {
+            "extension": ".ytf",
+            "description": "Google Picasa font cache"
+        },
+        {
+            "extension": ".000",
+            "description": "Microsoft SharePoint Server 2007 temporary file"
+        },
+        {
+            "extension": ".vdjcache",
+            "description": "VirtualDJ cache"
+        },
+        {
+            "extension": ".aecache",
+            "description": "Adobe After Effects cache"
+        },
+        {
+            "extension": ".lai",
+            "description": "GNU Libtool temporary data"
+        },
+        {
+            "extension": ".peb",
+            "description": "Corel WordPerfect program editor bottom overflow"
+        },
+        {
+            "extension": ".~$~",
+            "description": "3GP/iPod/PSP/MP4 Converter temporary file"
+        },
+        {
+            "extension": ".nc2",
+            "description": "NewsLeecher cache data"
+        },
+        {
+            "extension": ".---",
+            "description": "Temporary file"
+        },
+        {
+            "extension": ".yumtx",
+            "description": "YUM transaction data"
+        },
+        {
+            "extension": ".00a",
+            "description": "Microsoft temporary data"
+        },
+        {
+            "extension": ".1",
+            "description": "Google Android cache"
+        },
+        {
+            "extension": ".db",
+            "description": "Apple Safari cache database"
+        },
+        {
+            "extension": ".ccc",
+            "description": "Dev-C++ code completion cache"
+        },
+        {
+            "extension": ".tv1",
+            "description": "Corel WordPerfect overflow file"
+        },
+        {
+            "extension": ".bdi",
+            "description": "Pro/ENGINEER temporary data"
+        },
+        {
+            "extension": ".bv4",
+            "description": "Corel WordPerfect overflow file"
+        },
+        {
+            "extension": ".mpgindex",
+            "description": "Adobe MPEG index"
+        },
+        {
+            "extension": ".pzx",
+            "description": "Pizazz Plus swap data"
+        },
+        {
+            "extension": ".bv2",
+            "description": "Corel WordPerfect overflow file"
+        },
+        {
+            "extension": ".bde",
+            "description": "Pro/ENGINEER temporary"
+        },
+        {
+            "extension": ".tv7",
+            "description": "Corel WordPerfect overflow file"
+        },
+        {
+            "extension": ".tst",
+            "description": "Pro/ENGINEER temporary data"
+        },
+        {
+            "extension": ".nb2",
+            "description": "Newsbin unfinished download"
+        },
+        {
+            "extension": ".jnk",
+            "description": "Junk temporary data"
+        },
+        {
+            "extension": ".qp1",
+            "description": "QuickPar cache"
+        },
+        {
+            "extension": ".tv3",
+            "description": "Corel WordPerfect overflow file"
+        },
+        {
+            "extension": ".simpl_int",
+            "description": "Temporary data"
+        },
+        {
+            "extension": ".chk",
+            "description": "Corel WordPerfect temporary file"
+        },
+        {
+            "extension": ".crc",
+            "description": "Pro/ENGINEER temporary"
+        },
+        {
+            "extension": ".sss~",
+            "description": "WindowBlinds temporary data"
+        },
+        {
+            "extension": ".lst",
+            "description": "Pro/ENGINEER temporary data"
+        },
+        {
+            "extension": ".inprogress",
+            "description": "Apple Time Machine temporary data"
+        },
+        {
+            "extension": ".vsscc",
+            "description": "Microsoft Visual Studio temporary file"
+        },
+        {
+            "extension": ".qbi",
+            "description": "QuickBooks image file"
+        },
+        {
+            "extension": ".ipe_tempfile",
+            "description": "iPhone temporary data"
+        },
+        {
+            "extension": ".t44",
+            "description": "dBASE IV temporary data"
+        },
+        {
+            "extension": ".w44",
+            "description": "dBASE temporary"
+        },
+        {
+            "extension": ".wtmp",
+            "description": "Microsoft Word for Mac 5 temporary data"
+        },
+        {
+            "extension": ".lref",
+            "description": "WPF XAML cache"
+        },
+        {
+            "extension": ".xqp",
+            "description": "I-Doser temporary data"
+        },
+        {
+            "extension": ".cached_icon",
+            "description": "HERE Maps for Android icon cache"
+        },
+        {
+            "extension": ".slxc",
+            "description": "Simulink cache"
+        },
+        {
+            "extension": ".@@2",
+            "description": "HiDownload temporary data"
+        },
+        {
+            "extension": ".phc",
+            "description": "Pegasus Mail header cache"
+        },
+        {
+            "extension": ".csac",
+            "description": "Web Research collection optimization temporary data"
+        },
+        {
+            "extension": ".ddat",
+            "description": "DivX Web Player temporary download"
+        },
+        {
+            "extension": ".tv8",
+            "description": "Corel WordPerfect overflow data"
+        },
+        {
+            "extension": ".sdx",
+            "description": "Smart Diary Suite temporary"
+        },
+        {
+            "extension": ".fdpart",
+            "description": "Fresh Download partial downloaded data"
+        },
+        {
+            "extension": ".compo",
+            "description": "DAZ 3D Carrara Pro 7 or 8 temporary file"
+        },
+        {
+            "extension": ".pat",
+            "description": "Extensible Storage Engine (ESE) patch file"
+        },
+        {
+            "extension": ".wtmp",
+            "description": "Partial torrent download"
+        },
+        {
+            "extension": ".rad",
+            "description": "Real Rhapsody cache"
+        },
+        {
+            "extension": ".#$#",
+            "description": "ULead Photoimpact temporary file"
+        },
+        {
+            "extension": ".m",
+            "description": "DS photo for Android cache"
+        },
+        {
+            "extension": ".scuf",
+            "description": "Temporary data"
+        },
+        {
+            "extension": ".dem",
+            "description": "Creator Simulator temporary data"
+        },
+        {
+            "extension": ".ci",
+            "description": "Microsoft SharePoint Server 2007 temporary data"
+        },
+        {
+            "extension": ".alt",
+            "description": "Microsoft Dynamics AX temporary data"
+        },
+        {
+            "extension": ".tv4",
+            "description": "Corel WordPerfect overflow file"
+        },
+        {
+            "extension": ".001",
+            "description": "Microsoft SharePoint Server 2007 temporary"
+        },
+        {
+            "extension": ".wlx",
+            "description": "Microsoft Live Mesh placeholder data"
+        },
+        {
+            "extension": ".ers",
+            "description": "Pro/ENGINEER temporary file"
+        },
+        {
+            "extension": ".out",
+            "description": "Pro/ENGINEER temporary data"
+        },
+        {
+            "extension": ".bsi",
+            "description": "Microsoft SharePoint Server 2007 temporary data"
+        },
+        {
+            "extension": ".pspdeformationmap",
+            "description": "Corel PaintShop Pro deformation map"
+        },
+        {
+            "extension": ".mpx",
+            "description": "Alpha Five temporary index data"
+        },
+        {
+            "extension": ".zsr",
+            "description": "form-Z temporary saved data"
+        },
+        {
+            "extension": ".pet",
+            "description": "Corel WordPerfect top overflow data"
+        },
+        {
+            "extension": ".nmu",
+            "description": "EMC Documentum Client Library query cache"
+        },
+        {
+            "extension": ".wpk",
+            "description": "Nero WaveEditor data"
+        },
+        {
+            "extension": ".$a",
+            "description": "AutoCAD temporary data"
+        },
+        {
+            "extension": ".dmsk",
+            "description": "DivX Web Player temporary download"
+        },
+        {
+            "extension": ".4sw",
+            "description": "4DOS swap"
+        },
+        {
+            "extension": ".ncch",
+            "description": "Microsoft Interner Explorer for Mac cache"
+        },
+        {
+            "extension": ".vmdk-converttmp",
+            "description": "VMware Fusion temporary data"
+        },
+        {
+            "extension": ".stf",
+            "description": "PhotoImpression thumbnail cache"
+        },
+        {
+            "extension": ".asx",
+            "description": "Alpha Five temporary index"
+        },
+        {
+            "extension": ".r1m",
+            "description": "RealOne streaming media data"
+        },
+        {
+            "extension": ".asab",
+            "description": "Repo temporary output data"
+        },
+        {
+            "extension": ".c1s",
+            "description": "Capture One photo cache"
+        },
+        {
+            "extension": ".lockfile",
+            "description": "Mac OS X Lion property list XML lock data"
+        },
+        {
+            "extension": ".bc",
+            "description": "Adobe Bridge cache"
+        },
+        {
+            "extension": ".u96",
+            "description": "EasyZip temporary data"
+        },
+        {
+            "extension": ".ger",
+            "description": "Pro/ENGINEER temporary"
+        },
+        {
+            "extension": ".ref",
+            "description": "Pro/ENGINEER temporary data"
+        },
+        {
+            "extension": ".preview7",
+            "description": "WindowBlinds temporary file"
+        },
+        {
+            "extension": ".memb",
+            "description": "Pro/ENGINEER temporary file"
+        },
+        {
+            "extension": ".fchc",
+            "description": "Fetch cache file"
+        },
+        {
+            "extension": ".ipl22",
+            "description": "PLATO Learning network temporary data"
+        },
+        {
+            "extension": ".mdccache",
+            "description": "Microsoft Document Connection cache file"
+        },
+        {
+            "extension": ".bv9",
+            "description": "Corel WordPerfect overflow file"
+        },
+        {
+            "extension": ".blk",
+            "description": "Corel WordPerfect Office temporary file"
+        },
+        {
+            "extension": ".db$",
+            "description": "dBASE temporary file"
+        },
+        {
+            "extension": ".dir",
+            "description": "Microsoft SharePoint Server 2007 temporary file"
+        },
+        {
+            "extension": ".hmap.Dir",
+            "description": "Microsoft SharePoint Server 2007 temporary file"
+        }
+    ]
+}
