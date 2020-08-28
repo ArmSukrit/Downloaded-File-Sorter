@@ -123,7 +123,7 @@ def main():
                         print(f'folder "{extension}" has been created.')
 
                     old_name_file_path = os.path.join(sorter_path, name)
-                    file_name_datetime = datetime.now().strftime('%d.%m.%y %H.%M.%S')
+                    file_name_datetime = datetime.now().strftime('%d%m%y %H%M%S')
                     new_name = f'{file_name} {file_name_datetime}{extension}'
                     new_name_file_path = os.path.join(sorter_path, new_name)
                     os.rename(old_name_file_path, new_name_file_path)
