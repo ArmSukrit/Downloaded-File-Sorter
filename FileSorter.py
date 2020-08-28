@@ -72,7 +72,10 @@ def main():
         # read config
         move_log = 'FileSorter - move log.txt'
         ignore = [move_log, readme_name]
-        ignore_extension = ['.tmp']
+        ignore_extension = [
+            '.!ut', '.adadownload', '.bc', '.bc!', '.blf', '.cache', '.crdownload', '.dmp', '.download', '.download',
+            '.download', '.part', '.partial', '.temp', '.tmp'
+        ]
         with open(config, 'r') as f:
             try:
                 data = json.load(f)
