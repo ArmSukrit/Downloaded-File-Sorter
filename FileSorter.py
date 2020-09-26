@@ -5,6 +5,7 @@ import json
 import webbrowser as web
 from PIL import Image
 import base64
+from time import sleep
 
 
 
@@ -116,6 +117,7 @@ def main():
                     dir_name = extension
                     dir_path = os.path.join(sorter_path, dir_name)
                     move(new_name_file_path, dir_path)
+                    print(f'moved {name} to {new_name_file_path}')
                     to_put_in_move_log += f'\nrenamed "{name}" to "{new_name}"\nmoved to {dir_path}\n'
             except:
                 pass
@@ -131,3 +133,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    sleep(10)
