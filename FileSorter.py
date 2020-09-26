@@ -71,7 +71,7 @@ def main():
                 data = json.load(f)
                 sorter_path = data['sorter path']
                 ignore.append(data['ignore'])
-                print(f'Sorter path = "{sorter_path}"')
+                print(f'Sorter path = "{sorter_path}"\n')
                 if not os.path.exists(sorter_path):
                     print(f'cannot find the folder path specified in {config}')
                     show_how_to_get_sorter_path()
@@ -97,6 +97,7 @@ def main():
                 f.write(readme)
 
         to_put_in_move_log = ""
+        to_report = {}
         for name in in_sorter:
             try:
                 file_name, extension = os.path.splitext(name)
@@ -115,7 +116,7 @@ def main():
                     dir_name = extension
                     dir_path = os.path.join(sorter_path, dir_name)
                     move(new_name_file_path, dir_path)
-                    print(f'moved {name} to {new_name_file_path}')
+                    to_report[name] = dir_path
                     to_put_in_move_log += f'\nrenamed "{name}" to "{new_name}"\nmoved to {dir_path}\n'
             except:
                 pass
@@ -124,7 +125,11 @@ def main():
                 f.write(f'{now_str}\n'
                         f'{to_put_in_move_log}'
                         f'{"_" * 100}\n')
-        input('done putting in move log')
+        if to_report:
+            print('moved')
+            for name, new_path in to_report.items():
+                print(f'- {name} to {new_path}')
+        input('\ndone putting in move log')
     else:
         print('Sorter path does not exist.')
         input('Enter to close ')
