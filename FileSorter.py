@@ -8,6 +8,8 @@ import base64
 
 
 def main():
+    # change cwd to the directory of this script
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     def show_how_to_get_sorter_path():
         from b64img import b64_str_img
@@ -22,10 +24,14 @@ def main():
     # show read me first
     readme_name = 'FileSorter - README.txt'
     from readme import readme
-    if not os.path.exists(readme_name):
+    try:
+        f = open(readme_name)
+    except FileNotFoundError:
         with open(readme_name, 'w') as f:
             f.write(readme)
         web.open(readme_name)
+    else:
+        f.close()
 
     # check all needed files and read them. If sorter path exists, break.
     while True:
@@ -50,12 +56,14 @@ def main():
                               f'For example, if you have a folder named "Sorter" in Drive D:, the path is '
                               f'"D:\\Sorter"\n')
 
+        # get temp file extensions
+        with open('common temporary file extensions.json') as f:
+            data = json.load(f)
+            ignore_extension = [each["extension"] for each in data["common extensions"]]
+
         # read config
         move_log = 'FileSorter - move log.txt'
         ignore = [move_log, readme_name]
-        with open('common temporary file extensions.json'):
-            data = json.load(f)
-            ignore_extension = [each["extension"] for each in data["common extensions"]]
 
         with open(config, 'r') as f:
             # noinspection PyBroadException
@@ -111,11 +119,12 @@ def main():
                     to_put_in_move_log += f'\nrenamed "{name}" to "{new_name}"\nmoved to {dir_path}\n'
             except:
                 pass
-            if to_put_in_move_log:
-                with open(move_log, 'a', encoding='utf8') as f:
-                    f.write(f'{now_str}\n'
-                            f'{to_put_in_move_log}'
-                            f'{"_" * 100}\n')
+        if to_put_in_move_log:
+            with open(move_log, 'a', encoding='utf8') as f:
+                f.write(f'{now_str}\n'
+                        f'{to_put_in_move_log}'
+                        f'{"_" * 100}\n')
+        input('done putting in move log')
     else:
         print('Sorter path does not exist.')
         input('Enter to close ')
@@ -123,4 +132,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    input()
