@@ -5,15 +5,6 @@ import json
 import webbrowser as web
 from PIL import Image
 import base64
-from time import sleep
-
-
-
-def problems_and_features():
-    """
-    - still cannot run in background
-    -
-    """
 
 
 def main():
@@ -57,15 +48,15 @@ def main():
                     else:
                         print(f'cannot find path "{path}"\n'
                               f'For example, if you have a folder named "Sorter" in Drive D:, the path is '
-                              f'"D:\Sorter"\n')
+                              f'"D:\\Sorter"\n')
 
         # read config
         move_log = 'FileSorter - move log.txt'
         ignore = [move_log, readme_name]
-        ignore_extension = [
-            '.!ut', '.adadownload', '.bc', '.bc!', '.blf', '.cache', '.crdownload', '.dmp',
-            '.download', '.part', '.partial', '.temp', '.tmp'
-        ]
+        with open('common temporary file extensions.json'):
+            data = json.load(f)
+            ignore_extension = [each["extension"] for each in data["common extensions"]]
+
         with open(config, 'r') as f:
             # noinspection PyBroadException
             try:
@@ -99,7 +90,6 @@ def main():
 
         to_put_in_move_log = ""
         for name in in_sorter:
-            # noinspection PyBroadException
             try:
                 file_name, extension = os.path.splitext(name)
                 if not in_sorter:
@@ -133,4 +123,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    sleep(10)
+    input()
