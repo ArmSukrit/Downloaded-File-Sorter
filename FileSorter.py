@@ -128,8 +128,8 @@ def main():
         if to_report:
             print('moved')
             for name, new_path in to_report.items():
-                print(f'- {name} to {new_path}')
-        input('\ndone putting in move log')
+                print(f'- {name} to {new_path}\\')
+            print()
     else:
         print('Sorter path does not exist.')
         input('Enter to close ')
