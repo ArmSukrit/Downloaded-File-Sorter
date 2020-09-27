@@ -6,24 +6,29 @@ import webbrowser as web
 from PIL import Image
 import base64
 
+from readme import readme
+from b64img import b64_str_img
 
-def main():
-    # change cwd to the directory of this script
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-    def show_how_to_get_sorter_path():
-        from b64img import b64_str_img
+# global variables
+script_path = os.path.abspath(__file__)
+readme += f'- This program is at {script_path}'
+script_dir = os.path.dirname(script_path)
+readme_name = 'FileSorter - README.txt'
+config = 'FileSorter - config.json'
+image_file_name = "how to get sorter path.jpg"
 
-        image_file_name = "how to get sorter path.jpg"
-        if not os.path.exists(image_file_name):
-            with open(image_file_name, 'wb') as wf:
-                wf.write(base64.b64decode(b64_str_img))
-        with Image.open(image_file_name) as image:
-            image.show()
 
+def show_how_to_get_sorter_path():
+    if not os.path.exists(image_file_name):
+        with open(image_file_name, 'wb') as wf:
+            wf.write(base64.b64decode(b64_str_img))
+    with Image.open(image_file_name) as image:
+        image.show()
+
+
+def show_readme():
     # show read me first
-    readme_name = 'FileSorter - README.txt'
-    from readme import readme
     try:
         f = open(readme_name)
     except FileNotFoundError:
@@ -33,10 +38,16 @@ def main():
     else:
         f.close()
 
+
+def main():
+    # change cwd to the directory of this script
+    os.chdir(script_dir)
+
+    show_readme()
+
     # check all needed files and read them. If sorter path exists, break.
     while True:
         # create config, if not found
-        config = 'FileSorter - config.json'
         if not os.path.exists(config):
             all_config = {
                 'sorter path': None, 'ignore': ['example.txt']
@@ -64,7 +75,6 @@ def main():
         # read config
         move_log = 'FileSorter - move log.txt'
         ignore = [move_log, readme_name]
-
         with open(config, 'r') as f:
             # noinspection PyBroadException
             try:
@@ -129,7 +139,7 @@ def main():
             print('moved')
             for name, new_path in to_report.items():
                 print(f'- {name} to {new_path}\\')
-            print()
+            input()
     else:
         print('Sorter path does not exist.')
         input('Enter to close ')
