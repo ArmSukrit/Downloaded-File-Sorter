@@ -1,13 +1,28 @@
-import os
-from shutil import move
-from datetime import datetime
-import json
-import webbrowser as web
-from PIL import Image
 import base64
+import json
+import os
+import sys
+import webbrowser as web
+from datetime import datetime
+from shutil import move
 
-from readme import readme
 from b64img import b64_str_img
+from readme import readme
+
+
+def imports():
+    from PIL import Image
+
+
+try:
+    imports()
+except ImportError:
+    os.system(sys.executable + " -m pip install -r requirements.txt")
+    try:
+        imports()
+    except ImportError:
+        print("Cannot install dependencies...")
+        exit(1)
 
 
 # global variables
@@ -70,7 +85,8 @@ def main():
         # get temp file extensions
         with open('common temporary file extensions.json') as f:
             data = json.load(f)
-            ignore_extension = [each["extension"] for each in data["common extensions"]]
+            ignore_extension = [each["extension"]
+                                for each in data["common extensions"]]
 
         # read config
         move_log = 'FileSorter - move log.txt'
