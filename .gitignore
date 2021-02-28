@@ -4,3 +4,4 @@ how to get sorter path.jpg
 test.py
 .idea\
 .vscode/settings.json
+__pycache__/*

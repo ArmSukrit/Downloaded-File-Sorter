@@ -10,16 +10,12 @@ from b64img import b64_str_img
 from readme import readme
 
 
-def imports():
-    from PIL import Image
-
-
 try:
-    imports()
+    from PIL import Image
 except ImportError:
     os.system(sys.executable + " -m pip install -r requirements.txt")
     try:
-        imports()
+        from PIL import Image
     except ImportError:
         print("Cannot install dependencies...")
         exit(1)
