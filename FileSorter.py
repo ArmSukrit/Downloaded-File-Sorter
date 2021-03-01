@@ -135,18 +135,22 @@ def main():
                         os.makedirs(extension)
 
                     old_name_file_path = os.path.join(sorter_path, name)
-                    file_name_datetime = datetime.now().strftime('%d%m%y %H%M%S')
-                    new_name = f'{file_name} {file_name_datetime}{extension}'
+                    now = datetime.now()
+                    os.chdir(os.path.join(sorter_path, extension))
+                    if os.path.exists(name):
+                        file_name_datetime = now.strftime('time-%H%M%S')
+                        new_name = f'{file_name} {file_name_datetime}{extension}'
+                    else:
+                        new_name = file_name + extension
+                    os.chdir(sorter_path)
                     new_name_file_path = os.path.join(sorter_path, new_name)
                     os.rename(old_name_file_path, new_name_file_path)
                     dir_name = extension
                     dir_path = os.path.join(sorter_path, dir_name)
                     move(new_name_file_path, dir_path)
-                    print(name)
                     to_report[name] = dir_path
-                    date_time = datetime.now()
-                    items = [name, new_name, dir_path, date_time.strftime(
-                        "%d/%m/%Y"), date_time.strftime("%H:%M:%S")]
+                    items = [name, new_name, dir_path + '\\', now.strftime(
+                        "%d/%m/%Y"), now.strftime("%H:%M:%S")]
                     to_put_in_move_log.append(items)
             except Error as e:
                 print(e)
