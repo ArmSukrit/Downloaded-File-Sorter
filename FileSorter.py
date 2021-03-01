@@ -4,11 +4,11 @@ import os
 import sys
 import webbrowser as web
 from datetime import datetime
-from shutil import move
+from os.path import join
+from shutil import Error, move
 
 from b64img import b64_str_img
 from readme import readme
-
 
 try:
     from PIL import Image
@@ -85,7 +85,7 @@ def main():
                                 for each in data["common extensions"]]
 
         # read config
-        move_log = 'FileSorter - move log.txt'
+        move_log = 'FileSorter - move log.csv'
         ignore = [move_log, readme_name]
         with open(config, 'r') as f:
             # noinspection PyBroadException
@@ -111,14 +111,18 @@ def main():
     if sorter_path_exists:
         in_sorter = os.listdir()
         in_sorter = [name for name in in_sorter if name not in ignore]
-        now_str = datetime.now().strftime("%H:%M:%S %d/%m/%y")
 
         # check for README.txt
         if not os.path.exists(readme_name):
             with open(readme_name, 'w') as f:
                 f.write(readme)
 
-        to_put_in_move_log = ""
+        # check for move log
+        if not os.path.exists(move_log):
+            with open(move_log, "w") as f:
+                f.write("old,current,moved_to,move_date,move_time\n")
+
+        to_put_in_move_log = []
         to_report = {}
         for name in in_sorter:
             try:
@@ -138,15 +142,18 @@ def main():
                     dir_name = extension
                     dir_path = os.path.join(sorter_path, dir_name)
                     move(new_name_file_path, dir_path)
+                    print(name)
                     to_report[name] = dir_path
-                    to_put_in_move_log += f'\nrenamed "{name}" to "{new_name}"\nmoved to {dir_path}\n'
-            except:
-                pass
+                    date_time = datetime.now()
+                    items = [name, new_name, dir_path, date_time.strftime(
+                        "%d/%m/%Y"), date_time.strftime("%H:%M:%S")]
+                    to_put_in_move_log.append(items)
+            except Error as e:
+                print(e)
         if to_put_in_move_log:
             with open(move_log, 'a', encoding='utf8') as f:
-                f.write(f'{now_str}\n'
-                        f'{to_put_in_move_log}'
-                        f'{"_" * 100}\n')
+                for each in to_put_in_move_log:
+                    f.write(",".join(each) + '\n')
         if to_report:
             print('moved')
             for name, new_path in to_report.items():
