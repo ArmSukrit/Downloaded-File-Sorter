@@ -30,6 +30,23 @@ image_file_name = "how to get sorter path.jpg"
 COMMON_TEMP_FILE_EXTENSIONS_JSON = 'common temporary file extensions.json'
 
 
+def main():
+    # change cwd to the directory of this script
+    os.chdir(script_dir)
+
+    # check all needed files in script_dir and read them.
+    show_readme()  # if doesn't exist
+    create_config()  # if doesn't exist
+    ignored_extensions = get_ignored_extensions()
+    paths: list = get_paths()
+
+    for path in paths:
+        if not os.path.isdir(path):
+            print(f'{path} doesn\'s exist')
+            continue
+        sort_files(path, ignored_extensions)
+
+
 def show_how_to_get_sorter_path():
     if not os.path.exists(image_file_name):
         with open(image_file_name, 'wb') as wf:
@@ -48,23 +65,6 @@ def show_readme():
         web.open(readme_name)
     else:
         f.close()
-
-
-def main():
-    # change cwd to the directory of this script
-    os.chdir(script_dir)
-
-    # check all needed files in script_dir and read them.
-    show_readme()  # if doesn't exist
-    create_config()  # if doesn't exist
-    ignored_extensions = get_ignored_extensions()
-    paths: list = get_paths()
-
-    for path in paths:
-        if not os.path.isdir(path):
-            print(f'{path} doesn\'s exist')
-            continue
-        sort_files(path, ignored_extensions)
 
 
 def get_paths():
