@@ -27,6 +27,7 @@ readme_name = 'FileSorter - README.txt'
 move_log = 'FileSorter - move log.csv'
 IGNORED_FILES = [move_log, readme_name]
 image_file_name = "how to get sorter path.jpg"
+COMMON_TEMP_FILE_EXTENSIONS_JSON = 'common temporary file extensions.json'
 
 
 def show_how_to_get_sorter_path():
@@ -85,7 +86,7 @@ def get_paths():
 
 def get_ignored_extensions():
     # get temp file extensions
-    with open('common temporary file extensions.json') as f:
+    with open(COMMON_TEMP_FILE_EXTENSIONS_JSON) as f:
         data = json.load(f)
         ignored_extensions = [each["extension"]
                               for each in data["common extensions"]]
