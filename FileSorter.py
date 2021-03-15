@@ -60,27 +60,28 @@ def main():
         # create config, if not found
         if not os.path.exists(config):
             all_config = {
-                'sorter path': None, 'ignore': ['example.txt']
+                'sorter paths': [], 'ignore': ['example.txt']
             }
             show_how_to_get_sorter_path()
             with open(config, 'w') as f:
                 # get sorter path
+                print("Enter x to stop adding path.")
                 while True:
                     path = input("Enter folder path which will be used as sorter\n"
                                  "sorter path = ").strip().strip('"')
                     if os.path.exists(path):
-                        all_config['sorter path'] = path
-                        json.dump(all_config, f, indent=4)
+                        all_config['sorter paths'].append(path)
                         break
                     else:
                         print(f'cannot find path "{path}"\n'
                               f'For example, if you have a folder named "Sorter" in Drive D:, the path is '
                               f'"D:\\Sorter"\n')
+                json.dump(all_config, f, indent=4)
 
         # get temp file extensions
         with open('common temporary file extensions.json') as f:
             data = json.load(f)
-            ignore_extension = [each["extension"]
+            ignored_extensions = [each["extension"]
                                 for each in data["common extensions"]]
 
         # read config
@@ -88,10 +89,10 @@ def main():
             # noinspection PyBroadException
             try:
                 data = json.load(f)
-                sorter_path = data['sorter path']
+                paths = data['sorter paths']
                 ignore.append(data['ignore'])
-                print(f'Sorter path = "{sorter_path}"\n')
-                if not os.path.exists(sorter_path):
+                print(f'Sorter path = {paths}\n')
+                if not os.path.exists(paths):
                     print(f'cannot find the folder path specified in {config}')
                     show_how_to_get_sorter_path()
                     os.remove(config)
@@ -102,7 +103,13 @@ def main():
                 f.close()
                 os.remove(config)
 
-    # main program
+        for path in paths:
+            sort_files(path, ignored_extensions)
+
+
+def sort_files(sorter_path: str, ignored_extensions: list):
+    """ sort files based on their extensions in sorter_path directory """
+
     os.chdir(sorter_path)
     sorter_path_exists = os.path.exists(sorter_path)
     if sorter_path_exists:
