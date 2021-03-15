@@ -41,9 +41,6 @@ def main():
     paths: list = get_paths()
 
     for path in paths:
-        if not os.path.isdir(path):
-            print(f'{path} doesn\'s exist')
-            continue
         sort_files(path, ignored_extensions)
 
 
@@ -121,6 +118,9 @@ def create_config():
 def sort_files(path: str, ignored_extensions: list):
     """ sort files based on their extensions in sorter_path directory """
 
+    if not os.path.isdir(path):
+        print(f'{path} doesn\'s exist')
+        return
     os.chdir(path)  # from now on, work in path
 
     # check for README.txt
@@ -132,6 +132,12 @@ def sort_files(path: str, ignored_extensions: list):
     if not os.path.exists(move_log):
         with open(move_log, "w") as f:
             f.write("old,current,moved_to,move_date,move_time\n")
+
+    # check for bat file that when runs, sorts here
+    bat_file = "run me to sort files.bat"
+    if not os.path.exists(bat_file):
+        with open(bat_file, "w") as f:
+            f.write(sys.executable + " " + script_path + " " + script_dir)
 
     all_files = os.listdir()
     cared_files = [file for file in all_files if file not in IGNORED_FILES]
@@ -178,4 +184,11 @@ def sort_files(path: str, ignored_extensions: list):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        # if provided path in commandline
+        # python FileSorter.py path1 path2 ...
+        ignored_extensions = get_ignored_extensions()
+        for path in sys.argv[1:]:
+            sort_files(path, ignored_extensions)
+        exit(0)
     main()
