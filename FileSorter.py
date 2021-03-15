@@ -22,8 +22,10 @@ except ImportError:
 script_path = os.path.abspath(__file__)
 readme += f'- This program is at {script_path}'
 script_dir = os.path.dirname(script_path)
-readme_name = 'FileSorter - README.txt'
 config = 'FileSorter - config.json'
+readme_name = 'FileSorter - README.txt'
+move_log = 'FileSorter - move log.csv'
+ignore = [move_log, readme_name]
 image_file_name = "how to get sorter path.jpg"
 
 
@@ -53,7 +55,7 @@ def main():
 
     show_readme()
 
-    # check all needed files and read them. If sorter path exists, break.
+    # check all needed files in script_dir and read them.
     while True:
         # create config, if not found
         if not os.path.exists(config):
@@ -82,8 +84,6 @@ def main():
                                 for each in data["common extensions"]]
 
         # read config
-        move_log = 'FileSorter - move log.csv'
-        ignore = [move_log, readme_name]
         with open(config, 'r') as f:
             # noinspection PyBroadException
             try:
