@@ -60,7 +60,7 @@ def main():
     paths: list = get_paths()
 
     for path in paths:
-        if not os.path.exists(path):
+        if not os.path.isdir(path):
             print(f'{path} doesn\'s exist')
             paths.remove(path)
             continue
