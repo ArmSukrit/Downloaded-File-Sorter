@@ -78,9 +78,10 @@ def get_paths():
                 IGNORED_FILES.append(file)
             print(f'Sorter path = {paths}\n')
         except:
-            print('Invalid config, recreating it...')
+            input('Invalid config, please retart')
             f.close()
             os.remove(CONFIG)
+            exit(1)
     return paths
 
 
