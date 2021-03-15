@@ -14,11 +14,8 @@ try:
     from PIL import Image
 except ImportError:
     os.system(sys.executable + " -m pip install -r requirements.txt")
-    try:
-        from PIL import Image
-    except ImportError:
-        print("Cannot install dependencies...")
-        exit(1)
+    input("Restart to continue...")
+    exit(0)
 
 
 # global variables
