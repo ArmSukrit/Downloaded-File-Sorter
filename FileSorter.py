@@ -62,7 +62,6 @@ def main():
     for path in paths:
         if not os.path.isdir(path):
             print(f'{path} doesn\'s exist')
-            paths.remove(path)
             continue
         sort_files(path, ignored_extensions)
 
